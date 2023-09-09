@@ -7,7 +7,10 @@ emp_id = ['2180', '3529', '2460946', '15478', '1740', '1455', '84585', '1616587'
 
 
 def get_hh_data(employer_ids):
-    """Получение данных о работодателях и их вакансиях с сайта hh.ru"""
+    """
+    Получение данных о работодателях и их вакансиях с сайта hh.ru
+    :param employer_ids: cписок id работадателей на платформе hh.ru
+    """
 
     data = []
     vacancies = []
@@ -45,7 +48,10 @@ def get_hh_data(employer_ids):
 
 
 def create_database(database_name: str):
-    """Создание базы данных и таблиц для сохранения данных о компаниях и вакансиях."""
+    """
+    Создание базы данных и таблиц для сохранения данных о компаниях и вакансиях.
+    :param database_name: имя БД для сохранения данных о компаниях и их вакансиях
+    """
 
     conn = psycopg2.connect(dbname='postgres', user="postgres", password="dasha888", host="localhost")
     conn.autocommit = True
@@ -90,7 +96,11 @@ def create_database(database_name: str):
 
 
 def save_data_to_database(data, database_name: str):
-    """Сохранение данных о компаниях и вакансиях в базу данных."""
+    """
+    Сохранение данных о компаниях и вакансиях в базу данных.
+    :param data: данные о компаниях и вакансиях с платформы hh.ru
+    :param database_name: имя БД для сохранения данных о компаниях и их вакансиях
+    """
 
     conn = psycopg2.connect(dbname=database_name, user="postgres", password="dasha888", host="localhost")
 

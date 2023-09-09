@@ -52,7 +52,8 @@ class DBManager:
 
     def get_vacancies_with_keyword(self, keyword):
         """
-        получает список всех вакансий, в названии которых содержатся переданные в метод слова, например python
+        получает список всех вакансий по ключевому слову в названии вакансии
+        :param keyword: ключевое слово для поиска
         """
         self.cur.execute(f"SELECT * FROM vacancies "
                          f"WHERE vacancy_name LIKE '%{keyword}%'")
